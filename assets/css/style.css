@@ -1,0 +1,1142 @@
+/* =========================================================================
+   AYURVEDA NATURALS — CORE STYLESHEET
+   A premium herbal & Ayurvedic wellness storefront design system.
+   Built on Bootstrap 5.3 utility/grid classes + a bespoke component layer.
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   1. DESIGN TOKENS
+   ------------------------------------------------------------------------- */
+:root{
+  /* Brand palette */
+  --primary:#315C45;
+  --primary-dark:#214334;
+  --primary-rgb:49,92,69;
+  --secondary:#A47C52;
+  --accent:#C9824B;
+  --accent-rgb:201,130,75;
+  --sage:#A9B9A2;
+  --cream:#F7F3EA;
+  --sand:#E8DDCB;
+  --text:#243129;
+  --muted:#6F786F;
+  --white:#FFFFFF;
+  --border:#DCD8CE;
+
+  /* Surfaces */
+  --bg:var(--cream);
+  --bg-elevated:var(--white);
+  --bg-alt:var(--sand);
+  --header-bg:rgba(247,243,234,.86);
+
+  /* Typography */
+  --font-display:'Playfair Display', Georgia, serif;
+  --font-body:'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Spacing (4/8 system) */
+  --sp-1:.25rem;
+  --sp-2:.5rem;
+  --sp-3:.75rem;
+  --sp-4:1rem;
+  --sp-5:1.5rem;
+  --sp-6:2rem;
+  --sp-7:3rem;
+  --sp-8:4rem;
+  --sp-9:6rem;
+  --sp-10:8rem;
+
+  /* Radii — used sparingly, mixed with sharp panels */
+  --radius-sm:2px;
+  --radius-md:6px;
+  --radius-lg:28px 4px 28px 4px; /* organic asymmetric corner */
+  --radius-pill:999px;
+
+  /* Motion */
+  --ease:cubic-bezier(.4,0,.2,1);
+  --dur-fast:.18s;
+  --dur-med:.4s;
+
+  /* Shadow — used once, sparingly */
+  --shadow-soft:0 18px 44px -24px rgba(33,67,52,.35);
+  --shadow-tight:0 2px 10px -4px rgba(33,67,52,.18);
+
+  color-scheme:light;
+}
+
+[data-bs-theme="dark"]{
+  --bg:#182420;
+  --bg-elevated:#1F2E28;
+  --bg-alt:#233530;
+  --text:#EDEBE3;
+  --muted:#A7B3A9;
+  --border:#33453D;
+  --sand:#2B3A33;
+  --header-bg:rgba(24,36,32,.82);
+  --shadow-soft:0 18px 44px -24px rgba(0,0,0,.6);
+  color-scheme:dark;
+}
+
+/* -------------------------------------------------------------------------
+   2. RESET & BASE
+   ------------------------------------------------------------------------- */
+*{ box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+    scroll-behavior:auto !important;
+  }
+}
+
+body{
+  font-family:var(--font-body);
+  background-color:var(--bg);
+  color:var(--text);
+  font-size:1rem;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  transition:background-color var(--dur-med) var(--ease), color var(--dur-med) var(--ease);
+}
+
+h1,h2,h3,h4,.font-display{
+  font-family:var(--font-display);
+  color:var(--text);
+  font-weight:600;
+  line-height:1.18;
+  letter-spacing:-.01em;
+}
+
+h5,h6{ font-family:var(--font-body); font-weight:700; }
+
+p{ color:var(--muted); }
+
+a{ color:var(--primary); text-decoration:none; transition:color var(--dur-fast) var(--ease); }
+a:hover{ color:var(--accent); }
+
+[data-bs-theme="dark"] a{ color:var(--sage); }
+[data-bs-theme="dark"] a:hover{ color:var(--accent); }
+
+img{ max-width:100%; height:auto; display:block; }
+
+::selection{ background:var(--accent); color:var(--white); }
+
+/* Focus visibility — accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.form-control:focus-visible,
+[tabindex]:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+  border-radius:2px;
+}
+.form-control:focus, .form-select:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 .2rem rgba(var(--primary-rgb),.15);
+}
+
+/* Skip link */
+.skip-link{
+  position:absolute;
+  left:-999px;
+  top:auto;
+  z-index:2000;
+  background:var(--primary);
+  color:#fff;
+  padding:.75rem 1.25rem;
+  border-radius:var(--radius-sm);
+}
+.skip-link:focus{
+  left:var(--sp-4);
+  top:var(--sp-4);
+}
+
+/* Touch targets */
+.btn, .nav-link, .form-control, .icon-btn, .chip{
+  min-height:44px;
+}
+
+/* Logical properties for RTL friendliness by default */
+.container, .container-fluid, .container-xl, .container-lg{
+  padding-inline:var(--sp-5);
+}
+
+/* -------------------------------------------------------------------------
+   3. TYPE SCALE
+   ------------------------------------------------------------------------- */
+.display-editorial{
+  font-size:clamp(2.4rem, 3.6vw + 1rem, 4.6rem);
+  line-height:1.08;
+}
+.heading-lg{ font-size:clamp(1.9rem, 1.4vw + 1.4rem, 2.75rem); }
+.heading-md{ font-size:clamp(1.5rem, .8vw + 1.2rem, 2rem); }
+.heading-sm{ font-size:1.25rem; }
+.text-lead{ font-size:1.15rem; line-height:1.7; color:var(--muted); max-width:62ch; }
+.text-eyebrow{
+  font-family:var(--font-body);
+  font-weight:700;
+  font-size:.8rem;
+  letter-spacing:.03em;
+  color:var(--secondary);
+}
+[data-bs-theme="dark"] .text-eyebrow{ color:var(--sage); }
+
+.section-lede{ max-width:46ch; }
+
+/* -------------------------------------------------------------------------
+   4. LAYOUT HELPERS
+   ------------------------------------------------------------------------- */
+.section{ padding-block:var(--sp-9); }
+.section-tight{ padding-block:var(--sp-8); }
+.bg-cream{ background-color:var(--bg); }
+.bg-elevated{ background-color:var(--bg-elevated); }
+.bg-alt-panel{ background-color:var(--bg-alt); }
+.bg-forest{ background-color:var(--primary); color:#F3EFE4; }
+.bg-forest p, .bg-forest .text-lead{ color:rgba(243,239,228,.78); }
+.bg-forest h1,.bg-forest h2,.bg-forest h3,.bg-forest h4{ color:#fff; }
+
+.divider-organic{
+  height:1px;
+  background:linear-gradient(90deg, transparent, var(--border) 20%, var(--border) 80%, transparent);
+  border:0;
+  margin-block:0;
+}
+
+.ratio-editorial{ --bs-aspect-ratio: 118%; }
+
+/* Organic image shape */
+.img-organic{
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+}
+.img-mask-blob{
+  clip-path: polygon(12% 0%, 100% 0%, 100% 88%, 88% 100%, 0% 100%, 0% 12%);
+}
+
+/* Botanical decorative dot/line accents (inline SVG friendly) */
+.botanical-accent{
+  position:absolute;
+  pointer-events:none;
+  opacity:.5;
+  z-index:0;
+}
+[data-bs-theme="dark"] .botanical-accent{ opacity:.28; }
+
+/* -------------------------------------------------------------------------
+   4.5 HERO — ORBIT (centered, layered, animated)
+   ------------------------------------------------------------------------- */
+.hero-orbit{
+  padding-block:clamp(4rem, 9vw, 7.5rem) clamp(3rem, 6vw, 5rem);
+  isolation:isolate;
+}
+.hero-orbit-bg{ position:absolute; inset:0; z-index:-2; overflow:hidden; }
+.hero-orbit-bg .blob{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(70px);
+  opacity:.35;
+  will-change:transform;
+}
+.hero-orbit-bg .blob-1{
+  width:420px; height:420px;
+  background:var(--primary);
+  top:-170px; inset-inline-start:-130px;
+  animation:heroBlob1 16s var(--ease) infinite alternate;
+}
+.hero-orbit-bg .blob-2{
+  width:360px; height:360px;
+  background:var(--accent);
+  bottom:-150px; inset-inline-end:-110px;
+  animation:heroBlob2 18s var(--ease) infinite alternate;
+}
+[data-bs-theme="dark"] .hero-orbit-bg .blob{ opacity:.22; }
+
+@keyframes heroBlob1{
+  0%{ transform:translate(0,0) scale(1); }
+  100%{ transform:translate(40px,50px) scale(1.15); }
+}
+@keyframes heroBlob2{
+  0%{ transform:translate(0,0) scale(1); }
+  100%{ transform:translate(-30px,-40px) scale(1.1); }
+}
+
+.hero-orbit-ring{
+  position:absolute;
+  top:50%; left:50%;
+  width:min(660px, 82vw);
+  aspect-ratio:1;
+  transform:translate(-50%,-50%);
+  border:1px dashed var(--border);
+  border-radius:50%;
+  z-index:-1;
+  animation:heroRingSpin 70s linear infinite;
+}
+@keyframes heroRingSpin{ to{ transform:translate(-50%,-50%) rotate(360deg); } }
+
+.hero-orbit-content{ max-width:740px; }
+.hero-orbit-content .text-lead{ margin-inline:auto; }
+
+.hero-badge-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  background:var(--bg-elevated);
+  border:1px solid var(--border);
+  border-radius:var(--radius-pill);
+  padding:.55rem 1.15rem;
+  font-size:.82rem;
+  font-weight:700;
+  color:var(--text);
+  box-shadow:var(--shadow-tight);
+}
+.hero-badge-chip i{ color:var(--accent); }
+
+.orbit-media{ position:absolute; inset:0; z-index:1; pointer-events:none; }
+.orbit-card{
+  position:absolute;
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  box-shadow:var(--shadow-soft);
+  border:4px solid var(--bg-elevated);
+  animation:orbitFloat 7s ease-in-out infinite;
+}
+.orbit-card img{ width:100%; height:100%; object-fit:cover; aspect-ratio:1; display:block; }
+.orbit-card-1{ top:8%; inset-inline-start:5%; width:130px; animation-delay:0s; transform:rotate(-8deg); }
+.orbit-card-2{ top:16%; inset-inline-end:6%; width:150px; animation-delay:1.4s; transform:rotate(6deg); }
+.orbit-card-3{ bottom:10%; inset-inline-start:13%; width:120px; animation-delay:.7s; transform:rotate(5deg); }
+
+@keyframes orbitFloat{
+  0%,100%{ translate:0 0; }
+  50%{ translate:0 -18px; }
+}
+
+.hero-scroll-cue{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:.5rem;
+  margin-top:var(--sp-8);
+  color:var(--muted);
+  font-size:.75rem;
+  font-weight:700;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.hero-scroll-cue .cue-line{
+  width:1px; height:34px;
+  background:linear-gradient(var(--muted), transparent);
+  position:relative;
+  overflow:hidden;
+}
+.hero-scroll-cue .cue-line::after{
+  content:"";
+  position:absolute; inset-inline:0; top:-100%;
+  height:100%;
+  background:var(--primary);
+  animation:heroCueDrop 2.2s ease-in-out infinite;
+}
+@keyframes heroCueDrop{
+  0%{ top:-100%; } 60%{ top:100%; } 100%{ top:100%; }
+}
+
+@media (max-width: 991.98px){
+  .orbit-card{ display:none; }
+  .hero-orbit-ring{ display:none; }
+}
+
+/* -------------------------------------------------------------------------
+   5. HEADER
+   ------------------------------------------------------------------------- */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:1030;
+  background:var(--header-bg);
+  backdrop-filter:blur(14px) saturate(140%);
+  -webkit-backdrop-filter:blur(14px) saturate(140%);
+  border-bottom:1px solid var(--border);
+  transition:padding var(--dur-med) var(--ease), box-shadow var(--dur-med) var(--ease);
+}
+.site-header .navbar{ padding-block:var(--sp-4); transition:padding var(--dur-med) var(--ease); }
+.site-header.is-scrolled .navbar{ padding-block:var(--sp-2); }
+.site-header.is-scrolled{ box-shadow:var(--shadow-tight); }
+
+/* Robust 3-column alignment: logo | nav | actions — immune to
+   uneven content heights (e.g. a wrapping brand label). */
+.site-header .navbar > .container{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  column-gap:var(--sp-4);
+}
+@media (max-width: 991.98px){
+  .site-header .navbar > .container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+}
+
+.brand-mark{
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:1.35rem;
+  line-height:1.1;
+  color:var(--text);
+  white-space:nowrap;
+  flex-shrink:0;
+}
+.brand-mark:hover{ color:var(--primary); }
+.brand-mark svg{ flex-shrink:0; }
+.brand-mark-logo{
+  height:38px;
+  width:auto;
+  display:block;
+  flex-shrink:0;
+}
+
+@media (max-width: 420px){
+  .brand-mark{ font-size:1.1rem; }
+}
+
+.main-nav{
+  display:flex;
+  flex-wrap:nowrap;
+  justify-content:center;
+}
+.main-nav .nav-link{
+  color:var(--text);
+  font-weight:600;
+  font-size:.95rem;
+  white-space:nowrap;
+  padding-inline:var(--sp-3);
+  display:flex;
+  align-items:center;
+}
+.main-nav .nav-link:hover,
+.main-nav .nav-link:focus-visible,
+.main-nav .nav-link.active{ color:var(--primary); }
+
+/* Product detail tabs (Description/Ingredients/How to Use/FAQs/Reviews) — use brand green instead of Bootstrap's default blue */
+.nav-tabs .nav-link{ color:var(--text); border:none; }
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:focus-visible{ color:var(--primary); border-color:transparent; }
+.nav-tabs .nav-link.active{ color:var(--primary); background:transparent; border:none; border-bottom:2px solid var(--primary); }
+[data-bs-theme="dark"] .main-nav .nav-link{ color:var(--text); }
+[data-bs-theme="dark"] .main-nav .nav-link:hover{ color:var(--sage); }
+
+.header-actions{ flex-shrink:0; }
+
+.main-nav .dropdown-menu{
+  border:1px solid var(--border);
+  border-radius:var(--radius-md);
+  box-shadow:var(--shadow-soft);
+  background:var(--bg-elevated);
+  padding:var(--sp-3);
+  margin-top:var(--sp-2);
+}
+.main-nav .dropdown-item{
+  border-radius:var(--radius-sm);
+  padding:.55rem .85rem;
+  color:var(--text);
+  font-size:.92rem;
+}
+.main-nav .dropdown-item:hover, .main-nav .dropdown-item:focus{
+  background:var(--bg-alt);
+  color:var(--primary);
+}
+
+.header-actions .icon-btn{
+  width:42px;height:42px;
+  display:inline-flex;align-items:center;justify-content:center;
+  border-radius:50%;
+  color:var(--text);
+  position:relative;
+  border:1px solid transparent;
+}
+.header-actions .icon-btn:hover{ background:var(--bg-alt); color:var(--primary); }
+.cart-badge{
+  position:absolute;
+  top:-2px;
+  inset-inline-end:-2px;
+  background:var(--accent);
+  color:#fff;
+  font-size:.62rem;
+  font-weight:700;
+  width:17px;height:17px;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  line-height:1;
+}
+
+/* Theme toggle */
+.theme-toggle{ display:inline-flex; gap:2px; background:var(--bg-alt); border-radius:var(--radius-pill); padding:3px; }
+.theme-toggle button{
+  border:0; background:transparent; width:32px;height:32px;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;color:var(--muted);
+}
+.theme-toggle button.active{ background:var(--bg-elevated); color:var(--primary); box-shadow:var(--shadow-tight); }
+
+/* Offcanvas mobile nav */
+.offcanvas-brand-nav{ background:var(--bg-elevated); }
+.offcanvas-brand-nav .accordion-button{
+  background:transparent;color:var(--text);font-weight:600;font-family:var(--font-body);
+  box-shadow:none;
+}
+.offcanvas-brand-nav .accordion-button:not(.collapsed){ color:var(--primary); background:var(--bg-alt); }
+.offcanvas-brand-nav .accordion-item{ border-color:var(--border); background:transparent; }
+
+/* -------------------------------------------------------------------------
+   6. BUTTONS
+   ------------------------------------------------------------------------- */
+.btn{
+  font-family:var(--font-body);
+  font-weight:700;
+  font-size:.92rem;
+  padding:.85rem 1.6rem;
+  border-radius:var(--radius-sm);
+  transition:transform var(--dur-fast) var(--ease), background-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+  border-width:1.5px;
+}
+.btn-primary{
+  background:var(--primary);
+  border-color:var(--primary);
+  color:#fff;
+}
+.btn-primary:hover, .btn-primary:focus{
+  background:var(--primary-dark);
+  border-color:var(--primary-dark);
+  color:#fff;
+  transform:translateY(-1px);
+}
+.btn-outline-primary{
+  color:var(--primary);
+  border-color:var(--primary);
+  background:transparent;
+}
+.btn-outline-primary:hover{
+  background:var(--primary);
+  border-color:var(--primary);
+  color:#fff;
+  transform:translateY(-1px);
+}
+[data-bs-theme="dark"] .btn-outline-primary{ color:var(--sage); border-color:var(--sage); }
+[data-bs-theme="dark"] .btn-outline-primary:hover{ background:var(--sage); color:#152019; }
+
+/* Bootstrap's :disabled rule has higher specificity than .btn-outline-primary
+   alone, so disabled outline buttons (e.g. "Out of Stock") fall back to
+   Bootstrap's default blue unless we override it explicitly here. */
+.btn-outline-primary:disabled,
+.btn-outline-primary.disabled{
+  color:var(--primary);
+  border-color:var(--primary);
+  background:transparent;
+  opacity:.65;
+}
+[data-bs-theme="dark"] .btn-outline-primary:disabled,
+[data-bs-theme="dark"] .btn-outline-primary.disabled{
+  color:var(--sage);
+  border-color:var(--sage);
+}
+
+/* Pagination defaults to Bootstrap blue since it was never themed. */
+.pagination .page-link{
+  color:var(--primary);
+  border-color:var(--border);
+}
+.pagination .page-link:hover, .pagination .page-link:focus{
+  color:var(--primary-dark);
+  background:var(--bg-alt);
+  border-color:var(--border);
+  box-shadow:none;
+}
+.pagination .page-item.active .page-link{
+  background:var(--primary);
+  border-color:var(--primary);
+  color:#fff;
+}
+.pagination .page-item.disabled .page-link{
+  color:var(--muted);
+  background:transparent;
+}
+[data-bs-theme="dark"] .pagination .page-link{ color:var(--sage); }
+[data-bs-theme="dark"] .pagination .page-item.active .page-link{
+  background:var(--sage);
+  border-color:var(--sage);
+  color:#152019;
+}
+
+.btn-accent{ background:var(--accent); border-color:var(--accent); color:#fff; }
+.btn-accent:hover{ background:#B06E39; border-color:#B06E39; color:#fff; }
+
+.btn-ghost{ background:transparent;border-color:transparent;color:var(--text); }
+.btn-ghost:hover{ color:var(--primary); }
+
+.btn-sm{ padding:.55rem 1.1rem; font-size:.82rem; }
+
+.link-underline-accent{
+  color:var(--text);
+  font-weight:700;
+  border-bottom:1.5px solid var(--accent);
+  padding-bottom:2px;
+}
+.link-underline-accent:hover{ color:var(--accent); }
+
+/* -------------------------------------------------------------------------
+   7. TRUST STRIP
+   ------------------------------------------------------------------------- */
+.trust-strip{
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.trust-item{
+  display:flex; align-items:center; gap:.65rem;
+  font-weight:700; font-size:.88rem; color:var(--text);
+}
+.trust-item i{ color:var(--primary); font-size:1.2rem; }
+
+/* -------------------------------------------------------------------------
+   8. RITUAL / CATEGORY CARDS
+   ------------------------------------------------------------------------- */
+.ritual-card{
+  position:relative;
+  overflow:hidden;
+  border-radius:var(--radius-md);
+  isolation:isolate;
+  min-height:360px;
+  display:flex !important; /* guard against utility classes (e.g. d-block) overriding layout */
+  align-items:flex-end;
+  color:#fff;
+  background:var(--primary); /* fallback so the card still reads correctly if the image is slow/unavailable */
+}
+.ritual-card img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-2;
+  transition:transform .6s var(--ease);
+}
+.ritual-card::after{
+  content:"";
+  position:absolute; inset:0; z-index:-1;
+  background:linear-gradient(180deg, rgba(33,67,52,0) 35%, rgba(23,38,29,.88) 100%);
+}
+.ritual-card:hover img{ transform:scale(1.06); }
+.ritual-card .ritual-body{
+  position:relative;
+  z-index:1;
+  width:100%;
+  padding:var(--sp-5);
+}
+.ritual-card h3{ color:#fff; font-size:1.35rem; }
+.ritual-card p{ color:rgba(255,255,255,.82); font-size:.9rem; margin-bottom:.75rem; }
+.ritual-card.ritual-tall{ min-height:520px; }
+.ritual-card.ritual-short{ min-height:230px; }
+@media (min-width:992px){
+  .ritual-card.ritual-short{ min-height:0; } /* lg+: height comes from flex-fill splitting the ritual-tall card's height evenly */
+}
+
+/* -------------------------------------------------------------------------
+   8.6 PROMISE CARDS — icon-led value grid (about page)
+   ------------------------------------------------------------------------- */
+.promise-card{
+  height:100%;
+  padding:var(--sp-6) var(--sp-5);
+  background:var(--bg-elevated);
+  border:1px solid var(--border);
+  border-radius:var(--radius-md);
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.promise-card:hover{ transform:translateY(-4px); box-shadow:0 16px 32px rgba(0,0,0,.06); }
+.promise-icon{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:56px; height:56px; margin-bottom:var(--sp-4);
+  border-radius:50%;
+  background:rgba(var(--primary-rgb),.1);
+  color:var(--primary);
+  font-size:1.4rem;
+}
+
+/* -------------------------------------------------------------------------
+   8.5 STATS PANEL — editorial, bordered, icon-led
+   ------------------------------------------------------------------------- */
+.stats-panel{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:var(--bg-elevated);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-soft);
+  padding:var(--sp-7) var(--sp-5);
+  display:flex;
+  flex-wrap:wrap;
+}
+.stats-panel::before{
+  content:"";
+  position:absolute;
+  top:-70px; inset-inline-end:-70px;
+  width:200px; height:200px;
+  border-radius:50%;
+  background:var(--sand);
+  opacity:.55;
+  z-index:-1;
+}
+[data-bs-theme="dark"] .stats-panel::before{ opacity:.18; }
+
+.stats-panel-item{
+  flex:1 1 50%;
+  text-align:center;
+  padding:var(--sp-4) var(--sp-3);
+  border-top:1px solid var(--border);
+  transition:transform var(--dur-med) var(--ease);
+}
+.stats-panel-item:nth-child(-n+2){ border-top:0; }
+.stats-panel-item:hover{ transform:translateY(-4px); }
+
+@media (min-width: 992px){
+  .stats-panel-item{
+    flex:1 1 0;
+    border-top:0;
+    border-inline-start:1px solid var(--border);
+  }
+  .stats-panel-item:first-child{ border-inline-start:0; }
+}
+
+.stats-icon{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:52px; height:52px;
+  border-radius:50%;
+  background:var(--bg-alt);
+  color:var(--primary);
+  font-size:1.25rem;
+  margin-bottom:var(--sp-3);
+}
+.stats-number{
+  font-size:clamp(1.9rem, 1.4vw + 1.4rem, 2.6rem);
+  margin-bottom:.25rem;
+  color:var(--text);
+}
+.stats-number .stats-plus{ color:var(--secondary); font-size:.7em; }
+.stats-label{
+  font-size:.88rem;
+  color:var(--muted);
+  margin-bottom:0;
+}
+
+/* -------------------------------------------------------------------------
+   9. INGREDIENT CARDS
+   ------------------------------------------------------------------------- */
+.ingredient-card{
+  background:var(--bg-elevated);
+  border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+  overflow:hidden;
+  height:100%;
+  transition:border-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+.ingredient-card:hover{ border-color:var(--secondary); transform:translateY(-4px); }
+.ingredient-card .ingredient-img{ aspect-ratio:4/3; overflow:hidden; }
+.ingredient-card .ingredient-img img{ width:100%;height:100%;object-fit:cover; }
+.ingredient-card .ingredient-body{ padding:var(--sp-5); }
+.ingredient-card .botanical-name{ font-style:italic; color:var(--muted); font-size:.85rem; }
+
+/* -------------------------------------------------------------------------
+   10. PRODUCT CARDS
+   ------------------------------------------------------------------------- */
+.product-card{
+  background:var(--bg-elevated);
+  border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  transition:box-shadow var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+}
+.product-card:hover{ box-shadow:var(--shadow-soft); border-color:transparent; }
+.product-card .product-media{
+  position:relative;
+  aspect-ratio:1/1;
+  overflow:hidden;
+  background:var(--bg-alt);
+}
+.product-card .product-media img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .5s var(--ease);
+}
+.product-card:hover .product-media img{ transform:scale(1.05); }
+.product-card .product-tag{
+  position:absolute; top:var(--sp-3); inset-inline-start:var(--sp-3);
+  background:var(--bg-elevated); color:var(--primary);
+  font-size:.72rem; font-weight:700; padding:.3rem .7rem; border-radius:var(--radius-pill);
+  border:1px solid var(--border);
+}
+.product-card .product-actions{
+  position:absolute; top:var(--sp-3); inset-inline-end:var(--sp-3);
+  display:flex; flex-direction:column; gap:.4rem;
+  opacity:0; transform:translateX(6px);
+  transition:opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+[dir="rtl"] .product-card .product-actions{ transform:translateX(-6px); }
+.product-card:hover .product-actions,
+.product-card .product-actions:focus-within{ opacity:1; transform:none; }
+.product-card .product-actions button{
+  width:38px;height:38px;border-radius:50%;
+  background:var(--bg-elevated); border:1px solid var(--border); color:var(--text);
+  display:flex;align-items:center;justify-content:center;
+}
+.product-card .product-actions button:hover{ background:var(--primary); color:#fff; border-color:var(--primary); }
+.product-card .product-actions button.is-active{ background:var(--accent); color:#fff; border-color:var(--accent); }
+.product-card .product-body{ padding:var(--sp-4) var(--sp-4) var(--sp-5); display:flex; flex-direction:column; gap:.35rem; flex:1; }
+.product-card .product-cat{ font-size:.75rem; color:var(--secondary); font-weight:700; }
+.product-card .product-name{ font-family:var(--font-display); font-size:1.08rem; margin:0; }
+.product-card .product-name a{ color:var(--text); }
+.product-card .product-name a:hover{ color:var(--primary); }
+.product-card .rating{ color:var(--accent); font-size:.82rem; display:flex; align-items:center; gap:.3rem; }
+.product-card .rating span{ color:var(--muted); }
+.product-card .price-row{ margin-top:auto; display:flex; align-items:center; justify-content:space-between; padding-top:.5rem; }
+.product-card .price{ font-weight:800; font-size:1.05rem; color:var(--text); }
+.product-card .price-old{ text-decoration:line-through; color:var(--muted); font-size:.85rem; margin-inline-start:.4rem; font-weight:500; }
+.product-card .btn-add-cart{ width:100%; margin-top:.65rem; }
+
+/* Skeleton loading */
+.skeleton{ position:relative; overflow:hidden; background:var(--bg-alt); }
+.skeleton::after{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
+  transform:translateX(-100%);
+  animation:shimmer 1.4s infinite;
+}
+@keyframes shimmer{ 100%{ transform:translateX(100%); } }
+[data-bs-theme="dark"] .skeleton::after{ background:linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent); }
+
+/* -------------------------------------------------------------------------
+   11. TESTIMONIALS
+   ------------------------------------------------------------------------- */
+.testimonial-card{
+  background:var(--bg-elevated);
+  border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+  padding:var(--sp-6);
+  height:100%;
+}
+.testimonial-card .stars{ color:var(--accent); font-size:.85rem; margin-bottom:var(--sp-3); }
+.testimonial-card blockquote{ font-family:var(--font-display); font-size:1.1rem; line-height:1.55; margin-bottom:var(--sp-4); }
+.testimonial-card .customer{ display:flex; align-items:center; gap:.75rem; }
+.testimonial-card .avatar-initial{
+  width:42px;height:42px;border-radius:50%;
+  background:var(--sand); color:var(--primary-dark);
+  display:flex;align-items:center;justify-content:center;font-weight:700;
+}
+.testimonial-card .avatar-photo{
+  width:42px;height:42px;border-radius:50%;
+  object-fit:cover; display:block; flex-shrink:0;
+}
+
+/* -------------------------------------------------------------------------
+   12. JOURNAL / BLOG CARDS
+   ------------------------------------------------------------------------- */
+.journal-card{ display:flex; flex-direction:column; height:100%; }
+.journal-card .journal-media{ aspect-ratio:4/3; border-radius:var(--radius-sm); overflow:hidden; margin-bottom:var(--sp-4); }
+.journal-card .journal-media img{ width:100%;height:100%;object-fit:cover; transition:transform .5s var(--ease); }
+.journal-card:hover .journal-media img{ transform:scale(1.04); }
+.journal-card .journal-cat{ font-size:.75rem; font-weight:700; color:var(--secondary); }
+.journal-card h3{ font-size:1.25rem; }
+.journal-card .journal-meta{ font-size:.82rem; color:var(--muted); margin-top:auto; padding-top:.5rem; }
+
+/* -------------------------------------------------------------------------
+   13. NEWSLETTER
+   ------------------------------------------------------------------------- */
+.newsletter-panel{
+  background:var(--primary);
+  border-radius:var(--radius-md);
+  color:#fff;
+  padding:var(--sp-8);
+  position:relative;
+  overflow:hidden;
+}
+.newsletter-panel h2{ color:#fff; }
+.newsletter-panel p{ color:rgba(255,255,255,.78); }
+.newsletter-panel .form-control{
+  background:rgba(255,255,255,.08);
+  border-color:rgba(255,255,255,.3);
+  color:#fff;
+  padding:.85rem 1.1rem;
+}
+.newsletter-panel .form-control::placeholder{ color:rgba(255,255,255,.6); }
+.newsletter-panel .form-control:focus{ background:rgba(255,255,255,.14); border-color:#fff; box-shadow:none; }
+
+/* -------------------------------------------------------------------------
+   14. FOOTER
+   ------------------------------------------------------------------------- */
+.site-footer{
+  background:var(--primary-dark);
+  color:rgba(243,239,228,.82);
+  padding-block:var(--sp-9) var(--sp-6);
+}
+.site-footer p{ color:rgba(243,239,228,.82); }
+.site-footer h6{ color:#fff; font-size:.95rem; margin-bottom:var(--sp-4); }
+.site-footer a{ color:rgba(243,239,228,.72); font-size:.92rem; }
+.site-footer a:hover{ color:#fff; }
+.site-footer .footer-brand{ color:#fff; font-family:var(--font-display); font-size:1.3rem; }
+.footer-logo-link{
+  display:inline-flex;
+  background:#fff;
+  padding:10px 18px;
+  border-radius:12px;
+}
+.footer-logo{
+  height:34px;
+  width:auto;
+  display:block;
+}
+.footer-social a{
+  width:38px;height:38px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.25);
+  display:inline-flex;align-items:center;justify-content:center;
+  color:#fff;
+}
+.footer-social a:hover{ background:#fff; color:var(--primary-dark); }
+
+/* Contact page: map + socials on a light background */
+.contact-social a{
+  width:38px;height:38px;border-radius:50%;
+  border:1px solid var(--border);
+  display:inline-flex;align-items:center;justify-content:center;
+  color:var(--primary-brand);
+  background:#fff;
+}
+.contact-social a:hover{ background:var(--primary-brand); color:#fff; border-color:var(--primary-brand); }
+
+/* Contact page map: stretches to match the form column's height */
+.contact-map{
+  position:relative;
+  flex:1 1 auto;
+  min-height:320px;
+}
+.contact-map iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+}
+.footer-bottom{ border-top:1px solid rgba(255,255,255,.15); margin-top:var(--sp-7); padding-top:var(--sp-5); font-size:.85rem; }
+.payment-icons i{ font-size:1.6rem; color:rgba(255,255,255,.7); margin-inline-end:.5rem; }
+
+/* -------------------------------------------------------------------------
+   15. BREADCRUMBS
+   ------------------------------------------------------------------------- */
+.breadcrumb-bar{ background:var(--bg-alt); border-bottom:1px solid var(--border); }
+.breadcrumb{ margin:0; font-size:.85rem; }
+.breadcrumb-item + .breadcrumb-item::before{ content:"/"; color:var(--muted); }
+[dir="rtl"] .breadcrumb-item + .breadcrumb-item::before{ content:"\\"; }
+.breadcrumb-item a{ color:var(--muted); font-weight:600; }
+.breadcrumb-item.active{ color:var(--text); font-weight:700; }
+
+/* -------------------------------------------------------------------------
+   16. CHIPS / FILTER TOOLBAR
+   ------------------------------------------------------------------------- */
+.chip{
+  display:inline-flex; align-items:center;
+  padding:.55rem 1.15rem;
+  border:1px solid var(--border);
+  border-radius:var(--radius-pill);
+  background:var(--bg-elevated);
+  color:var(--text);
+  font-size:.88rem; font-weight:600;
+  white-space:nowrap;
+}
+.chip:hover{ border-color:var(--primary); color:var(--primary); }
+.chip.active{ background:var(--primary); border-color:var(--primary); color:#fff; }
+.chip-scroll{ display:flex; gap:.6rem; overflow-x:auto; padding-block:.25rem; scrollbar-width:thin; }
+
+.filter-toolbar{
+  background:var(--bg-elevated);
+  border:1px solid var(--border);
+  border-radius:var(--radius-md);
+  padding:var(--sp-5);
+}
+
+/* -------------------------------------------------------------------------
+   17. FORMS
+   ------------------------------------------------------------------------- */
+.form-control, .form-select{
+  background:var(--bg-elevated);
+  border:1.5px solid var(--border);
+  color:var(--text);
+  padding:.8rem 1rem;
+  border-radius:var(--radius-sm);
+}
+.form-control::placeholder{ color:var(--muted); opacity:.8; }
+.form-label{ font-weight:700; font-size:.88rem; margin-bottom:.4rem; }
+.form-label .req{ color:var(--accent); }
+.form-text{ font-size:.82rem; }
+.invalid-feedback{ font-size:.82rem; }
+.was-validated .form-control:invalid, .form-control.is-invalid{ border-color:#B3452F; }
+.was-validated .form-control:valid, .form-control.is-valid{ border-color:var(--primary); }
+.form-panel{
+  background:var(--bg-elevated);
+  border:1px solid var(--border);
+  border-radius:var(--radius-md);
+  padding:var(--sp-6);
+}
+
+/* Quantity stepper */
+.qty-stepper{ display:inline-flex; align-items:center; border:1.5px solid var(--border); border-radius:var(--radius-sm); }
+.qty-stepper button{ width:44px;height:44px; background:transparent; border:0; color:var(--text); font-size:1.1rem; }
+.qty-stepper button:hover{ color:var(--primary); }
+.qty-stepper input{ width:44px; text-align:center; border:0; background:transparent; color:var(--text); font-weight:700; }
+
+/* -------------------------------------------------------------------------
+   18. MODALS / TOASTS
+   ------------------------------------------------------------------------- */
+.modal-content{ background:var(--bg-elevated); border:1px solid var(--border); border-radius:var(--radius-md); }
+.modal-header, .modal-footer{ border-color:var(--border); }
+.toast{ background:var(--bg-elevated); border:1px solid var(--border); color:var(--text); }
+.toast-container{ z-index:1080; }
+
+/* -------------------------------------------------------------------------
+   19. ACCORDION (FAQ)
+   ------------------------------------------------------------------------- */
+.faq-accordion .accordion-item{ background:transparent; border:0; border-bottom:1px solid var(--border); }
+.faq-accordion .accordion-button{
+  background:transparent; color:var(--text); font-family:var(--font-display); font-size:1.1rem;
+  padding-inline:0; box-shadow:none;
+}
+.faq-accordion .accordion-button:not(.collapsed){ color:var(--primary); }
+.faq-accordion .accordion-button::after{ filter:none; }
+.faq-accordion .accordion-body{ padding-inline:0; color:var(--muted); }
+
+/* -------------------------------------------------------------------------
+   20. TABLES
+   ------------------------------------------------------------------------- */
+.table-editorial{ --bs-table-bg:transparent; border-color:var(--border); }
+.table-editorial thead th{ font-family:var(--font-display); font-weight:600; border-bottom-width:1px; }
+.table-responsive-wrap{ border:1px solid var(--border); border-radius:var(--radius-md); overflow:hidden; }
+
+/* -------------------------------------------------------------------------
+   21. SCROLL REVEAL
+   ------------------------------------------------------------------------- */
+.reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s var(--ease), transform .7s var(--ease); }
+.reveal.is-visible{ opacity:1; transform:none; }
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity:1; transform:none; transition:none; }
+}
+
+/* -------------------------------------------------------------------------
+   22. BACK TO TOP
+   ------------------------------------------------------------------------- */
+.back-to-top{
+  position:fixed; inset-block-end:var(--sp-6); inset-inline-end:var(--sp-6);
+  width:46px;height:46px;border-radius:50%;
+  background:var(--primary); color:#fff; border:0;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--shadow-soft);
+  opacity:0; visibility:hidden; transform:translateY(10px);
+  transition:opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease), visibility var(--dur-fast);
+  z-index:1040;
+}
+.back-to-top.show{ opacity:1; visibility:visible; transform:none; }
+
+/* -------------------------------------------------------------------------
+   23. PAGE HERO (non-home pages)
+   ------------------------------------------------------------------------- */
+.page-hero{ padding-block:var(--sp-8); background:var(--bg-alt); position:relative; overflow:hidden; }
+
+/* Parallax hero variant — background image with fixed attachment for a
+   simple, performant parallax effect. Falls back to normal scroll on
+   touch devices (iOS does not support background-attachment:fixed well)
+   and when the user prefers reduced motion. */
+.page-hero.page-hero-media,
+.parallax-section{
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+  padding-block:var(--sp-10);
+  color:#fff;
+}
+.page-hero.page-hero-media::before,
+.parallax-section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(23,38,29,.55) 0%, rgba(23,38,29,.78) 100%);
+  z-index:0;
+}
+.page-hero.page-hero-media .container,
+.parallax-section .container{ position:relative; z-index:1; }
+.page-hero.page-hero-media .text-eyebrow{ color:var(--sage); }
+.page-hero.page-hero-media h1,
+.page-hero.page-hero-media .heading-lg{ color:#fff; }
+.page-hero.page-hero-media .text-lead{ color:rgba(255,255,255,.85); }
+@media (max-width:767.98px){
+  .page-hero.page-hero-media,
+  .parallax-section{ background-attachment:scroll; }
+}
+@media (prefers-reduced-motion: reduce){
+  .page-hero.page-hero-media,
+  .parallax-section{ background-attachment:scroll; }
+}
+
+/* -------------------------------------------------------------------------
+   24. CERTIFICATION BADGES
+   ------------------------------------------------------------------------- */
+.cert-badge{
+  border:1px solid var(--border);
+  border-radius:var(--radius-md);
+  padding:var(--sp-5);
+  text-align:center;
+  background:var(--bg-elevated);
+  height:100%;
+}
+.cert-badge .cert-icon{
+  width:64px;height:64px;border-radius:50%;
+  background:var(--bg-alt); color:var(--primary);
+  display:flex;align-items:center;justify-content:center;
+  margin-inline:auto; margin-bottom:var(--sp-4); font-size:1.6rem;
+}
+.cert-badge .demo-tag{ font-size:.72rem; color:var(--muted); font-style:italic; }
+
+/* -------------------------------------------------------------------------
+   25. TIMELINE (About page)
+   ------------------------------------------------------------------------- */
+.timeline{ position:relative; padding-inline-start:var(--sp-6); }
+.timeline::before{
+  content:""; position:absolute; inset-inline-start:6px; top:6px; bottom:6px; width:1.5px; background:var(--border);
+}
+.timeline-item{ position:relative; padding-bottom:var(--sp-7); }
+.timeline-item:last-child{ padding-bottom:0; }
+.timeline-item::before{
+  content:""; position:absolute; inset-inline-start:-30px; top:4px;
+  width:14px;height:14px;border-radius:50%; background:var(--bg-elevated); border:3px solid var(--primary);
+}
+.timeline-item .year{ font-family:var(--font-display); color:var(--secondary); font-size:1.1rem; }
+
+/* -------------------------------------------------------------------------
+   26. UTILS
+   ------------------------------------------------------------------------- */
+.text-primary-brand{ color:var(--primary) !important; }
+.text-accent-brand{ color:var(--accent) !important; }
+.border-brand{ border-color:var(--border) !important; }
+.rounded-organic{ border-radius:var(--radius-lg); }
+.object-cover{ object-fit:cover; }
+.z-1{ z-index:1; }
+.max-w-form{ max-width:640px; }
+
+@media (max-width:991.98px){
+  .section{ padding-block:var(--sp-8); }
+}
+@media (max-width:575.98px){
+  .section{ padding-block:var(--sp-7); }
+  .newsletter-panel{ padding:var(--sp-6); }
+}

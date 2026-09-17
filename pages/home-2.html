@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AyurVeda Naturals — Herbal & Ayurvedic Wellness Store (Alternate Home)</title>
+<meta name="description" content="Alternate homepage layout for AyurVeda Naturals — a full-bleed magazine-style hero variant of the herbal wellness storefront.">
+<link rel="canonical" href="https://www.ayurvedanaturals.example/pages/home-2.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="../assets/css/style.css" rel="stylesheet">
+<link href="../assets/css/dark-mode.css" rel="stylesheet">
+<link href="../assets/css/rtl.css" rel="stylesheet">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="navbar navbar-expand-lg" aria-label="Primary">
+    <div class="container">
+      <a class="brand-mark" href="index.html">
+        <img src="../assets/images/logo.png" alt="AyurVeda Naturals" class="brand-mark-logo">
+      </a>
+
+      <div class="d-flex align-items-center gap-2 order-lg-3 header-actions">
+        <button class="icon-btn" type="button" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Search products">
+          <i class="bi bi-search"></i>
+        </button>
+        <a class="icon-btn d-none d-sm-inline-flex" href="#" aria-label="Wishlist" onclick="return false;">
+          <i class="bi bi-heart"></i>
+          <span class="cart-badge" data-wishlist-count hidden>0</span>
+        </a>
+        <a class="icon-btn" href="#" aria-label="Shopping cart, 3 items" onclick="return false;">
+          <i class="bi bi-bag"></i>
+          <span class="cart-badge" data-cart-count>3</span>
+        </a>
+        <div class="theme-toggle d-none d-md-inline-flex" role="group" aria-label="Theme">
+          <button type="button" data-theme-option="light" aria-pressed="false" aria-label="Light theme"><i class="bi bi-sun"></i></button>
+          <button type="button" data-theme-option="system" aria-pressed="true" aria-label="System theme"><i class="bi bi-circle-half"></i></button>
+          <button type="button" data-theme-option="dark" aria-pressed="false" aria-label="Dark theme"><i class="bi bi-moon-stars"></i></button>
+        </div>
+        <div class="theme-toggle d-none d-md-inline-flex" role="group" aria-label="Text direction">
+          <button type="button" data-dir-option="ltr" aria-pressed="true" aria-label="Left to right"><i class="bi bi-text-left"></i></button>
+          <button type="button" data-dir-option="rtl" aria-pressed="false" aria-label="Right to left"><i class="bi bi-text-right"></i></button>
+        </div>
+        <button class="btn btn-ghost d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNav" aria-controls="mobileNav" aria-label="Open menu">
+          <i class="bi bi-list fs-3"></i>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse order-lg-2 d-none d-lg-flex">
+        <ul class="navbar-nav main-nav mx-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="index.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Home</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="index.html">Home 1</a></li>
+              <li><a class="dropdown-item" href="home-2.html">Home 2</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="shop.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="shop.html">All Products</a></li>
+              <li><a class="dropdown-item" href="shop.html#herbal-teas">Herbal Teas</a></li>
+              <li><a class="dropdown-item" href="shop.html#oils">Ayurvedic Oils</a></li>
+              <li><a class="dropdown-item" href="shop.html#supplements">Supplements</a></li>
+              <li><a class="dropdown-item" href="shop.html#skincare">Skincare</a></li>
+              <li><a class="dropdown-item" href="shop.html#haircare">Hair Care</a></li>
+            </ul>
+          </li>
+      
+          <li class="nav-item"><a class="nav-link" href="ingredients.html">Ingredients</a></li>
+          <li class="nav-item"><a class="nav-link" href="consultation.html">Consultation</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Journal</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Mobile Offcanvas Navigation -->
+<div class="offcanvas offcanvas-end offcanvas-brand-nav" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+  <div class="offcanvas-header border-bottom border-brand">
+    <h2 class="offcanvas-title h5" id="mobileNavLabel">Menu</h2>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="accordion mb-4" id="mobileAccordion">
+      <a class="d-block py-2 fw-semibold text-decoration-none" style="color:var(--text)" href="index.html">Home</a><a class="d-block py-2 fw-semibold text-decoration-none" style="color:var(--text)" href="home-2.html">Home 2</a>
+      <div class="accordion-item">
+        <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mShop">Shop</button></h3>
+        <div id="mShop" class="accordion-collapse collapse" data-bs-parent="#mobileAccordion">
+          <div class="accordion-body d-flex flex-column gap-2">
+            <a href="shop.html">All Products</a><a href="shop.html#herbal-teas">Herbal Teas</a><a href="shop.html#oils">Ayurvedic Oils</a>
+            <a href="shop.html#supplements">Supplements</a><a href="shop.html#skincare">Skincare</a><a href="shop.html#haircare">Hair Care</a>
+          </div>
+        </div>
+      </div>
+     
+      <a class="d-block py-2 fw-semibold text-decoration-none" style="color:var(--text)" href="ingredients.html">Ingredients</a>
+      <a class="d-block py-2 fw-semibold text-decoration-none" style="color:var(--text)" href="consultation.html">Consultation</a>
+      <a class="d-block py-2 fw-semibold text-decoration-none" style="color:var(--text)" href="about.html">About</a>
+      <a class="d-block py-2 fw-semibold text-decoration-none" style="color:var(--text)" href="blog.html">Journal</a>
+      <a class="d-block py-2 fw-semibold text-decoration-none" style="color:var(--text)" href="contact.html">Contact</a>
+    </div>
+    <div class="d-flex align-items-center justify-content-between pt-3 border-top border-brand">
+      <span class="fw-semibold small">Theme</span>
+      <div class="theme-toggle" role="group" aria-label="Theme">
+        <button type="button" data-theme-option="light" aria-label="Light theme"><i class="bi bi-sun"></i></button>
+        <button type="button" data-theme-option="system" aria-label="System theme"><i class="bi bi-circle-half"></i></button>
+        <button type="button" data-theme-option="dark" aria-label="Dark theme"><i class="bi bi-moon-stars"></i></button>
+      </div>
+    </div>
+    <div class="d-flex align-items-center justify-content-between pt-3">
+      <span class="fw-semibold small">Language direction</span>
+      <div class="theme-toggle" role="group" aria-label="Direction">
+        <button type="button" data-dir-option="ltr" class="active" aria-label="Left to right">LTR</button>
+        <button type="button" data-dir-option="rtl" aria-label="Right to left">RTL</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Search Modal -->
+<div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title h5" id="searchModalLabel">Search products</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <label for="siteSearchInput" class="visually-hidden">Search products</label>
+        <input type="search" id="siteSearchInput" class="form-control form-control-lg mb-3" placeholder="Try “ashwagandha” or “scalp oil”" data-search-input>
+        <div class="d-flex flex-column gap-2">
+          <a href="product-details.html" class="p-2 rounded-2 text-decoration-none" style="color:var(--text)" data-search-result>Ashwagandha Wellness Blend</a>
+          <a href="product-details.html" class="p-2 rounded-2 text-decoration-none" style="color:var(--text)" data-search-result>Golden Turmeric Herbal Tea</a>
+          <a href="product-details.html" class="p-2 rounded-2 text-decoration-none" style="color:var(--text)" data-search-result>Brahmi Scalp Oil</a>
+          <a href="ingredients.html" class="p-2 rounded-2 text-decoration-none" style="color:var(--text)" data-search-result>Neem — Ingredient Glossary</a>
+        </div>
+        <p class="text-muted small mb-0 mt-2" data-search-empty hidden>No products matched your search.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3"></div>
+
+<main id="main-content">
+
+  <!-- =========================================
+       ALTERNATE HERO — full-bleed magazine cover style
+  ========================================= -->
+  <section class="parallax-section position-relative" style="min-height:92vh; display:flex; align-items:flex-end; overflow:hidden; background-image:url('https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?q=80&w=1800&auto=format&fit=crop');">
+    <div class="container pb-5">
+      <div class="row">
+        <div class="col-lg-8">
+          <p class="text-eyebrow mb-2" style="color:var(--sage);">Issue No. 01 — The Ritual Edition</p>
+          <h1 class="display-editorial mb-4" style="color:#fff;">Rooted in tradition. Formulated for today.</h1>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="shop.html" class="btn btn-primary btn-lg">Shop the Collection</a>
+            <a href="consultation.html" class="btn btn-lg" style="background:transparent; border:1.5px solid #fff; color:#fff;">Book a Consultation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-strip py-4 bg-elevated">
+    <div class="container">
+      <div class="row g-3 text-center text-lg-start">
+        <div class="col-6 col-lg-3"><span class="trust-item justify-content-center justify-content-lg-start"><i class="bi bi-flower1"></i> Plant-Based Ingredients</span></div>
+        <div class="col-6 col-lg-3"><span class="trust-item justify-content-center justify-content-lg-start"><i class="bi bi-book"></i> Traditionally Inspired</span></div>
+        <div class="col-6 col-lg-3"><span class="trust-item justify-content-center justify-content-lg-start"><i class="bi bi-patch-check"></i> Quality Tested</span></div>
+        <div class="col-6 col-lg-3"><span class="trust-item justify-content-center justify-content-lg-start"><i class="bi bi-droplet"></i> Thoughtfully Formulated</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial feature grid instead of the ritual cards used on the primary homepage -->
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="row mb-5"><div class="col-lg-7 reveal"><p class="text-eyebrow mb-2">Editor's Picks</p><h2 class="heading-lg mb-0">This season's essentials.</h2></div></div>
+      <div class="row g-4">
+        <div class="col-lg-6 reveal">
+          <a href="shop.html" class="ritual-card ritual-tall text-decoration-none">
+            <img src="../assets/images/herbal oil.jpg" alt="Ayurvedic oil bottles arranged on a tray" loading="lazy" width="1200" height="900">
+            <div class="ritual-body"><h3>Oils for the Season</h3><p>Grounding blends formulated for cooler months.</p><span class="link-underline-accent" style="color:#fff; border-color:#fff;">Shop oils</span></div>
+          </a>
+        </div>
+        <div class="col-lg-6 reveal">
+          <a href="shop.html" class="ritual-card ritual-tall text-decoration-none">
+            <img src="../assets/images/herbal tea.jpg" alt="A warm cup of herbal tea" loading="lazy" width="1200" height="900">
+            <div class="ritual-body"><h3>Teas for Slower Mornings</h3><p>Warming blends to start the day with intention.</p><span class="link-underline-accent" style="color:#fff; border-color:#fff;">Shop teas</span></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       BY THE RITUAL — STATS PANEL
+  ========================================= -->
+  <section class="section-tight bg-cream">
+    <div class="container">
+      <div class="stats-panel reveal">
+        <div class="stats-panel-item">
+          <span class="stats-icon"><i class="bi bi-people"></i></span>
+          <h2 class="stats-number">12k<span class="stats-plus">+</span></h2>
+          <p class="stats-label">Mindful households served</p>
+        </div>
+        <div class="stats-panel-item">
+          <span class="stats-icon"><i class="bi bi-search"></i></span>
+          <h2 class="stats-number">40<span class="stats-plus">+</span></h2>
+          <p class="stats-label">Small-batch formulations</p>
+        </div>
+        <div class="stats-panel-item">
+          <span class="stats-icon"><i class="bi bi-hourglass-split"></i></span>
+          <h2 class="stats-number">9<span class="stats-plus"> yrs</span></h2>
+          <p class="stats-label">Rooted in traditional practice</p>
+        </div>
+        <div class="stats-panel-item">
+          <span class="stats-icon"><i class="bi bi-star-fill"></i></span>
+          <h2 class="stats-number">4.8<span class="stats-plus">★</span></h2>
+          <p class="stats-label">Average customer rating</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       BESTSELLERS THIS SEASON
+  ========================================= -->
+  <section class="section bg-alt-panel">
+    <div class="container">
+      <div class="row mb-5 align-items-end">
+        <div class="col-lg-7 reveal">
+          <p class="text-eyebrow mb-2">Bestsellers This Season</p>
+          <h2 class="heading-lg mb-0">What people are reaching for.</h2>
+        </div>
+        <div class="col-lg-5 text-lg-end reveal"><a href="shop.html" class="link-underline-accent">Browse all products</a></div>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6 reveal">
+          <div class="product-card">
+            <div class="product-media">
+              <span class="product-tag">Herbal Teas</span>
+              <div class="product-actions">
+                <button type="button" data-wishlist-toggle data-product-id="h2p1" aria-pressed="false" aria-label="Add Tulsi Calm Tea to wishlist"><i class="bi bi-heart"></i></button>
+                <button type="button" data-quick-view aria-label="Quick view Tulsi Calm Tea" data-bs-toggle="modal" data-bs-target="#home2QuickView"><i class="bi bi-eye"></i></button>
+              </div>
+              <img src="../assets/images/tulasi tea.jpg" alt="Tulsi holy basil leaves for calming tea" loading="lazy" width="700" height="700">
+            </div>
+            <div class="product-body">
+              <span class="product-cat">Herbal Teas</span>
+              <h3 class="product-name"><a href="product-details.html">Tulsi Calm Tea</a></h3>
+              <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i> <span>(162)</span></span>
+              <div class="price-row"><span class="price">₹379</span></div>
+              <button class="btn btn-primary btn-add-cart" type="button" data-add-to-cart data-product-name="Tulsi Calm Tea">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 reveal">
+          <div class="product-card">
+            <div class="product-media">
+              <span class="product-tag">Ayurvedic Oils</span>
+              <div class="product-actions">
+                <button type="button" data-wishlist-toggle data-product-id="h2p2" aria-pressed="false" aria-label="Add Sandalwood Body Oil to wishlist"><i class="bi bi-heart"></i></button>
+                <button type="button" data-quick-view aria-label="Quick view Sandalwood Body Oil" data-bs-toggle="modal" data-bs-target="#home2QuickView"><i class="bi bi-eye"></i></button>
+              </div>
+              <img src="../assets/images/herbal oil.jpg" alt="Amber glass bottle of sandalwood body oil" loading="lazy" width="700" height="700">
+            </div>
+            <div class="product-body">
+              <span class="product-cat">Ayurvedic Oils</span>
+              <h3 class="product-name"><a href="product-details.html">Sandalwood Body Oil</a></h3>
+              <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i> <span>(88)</span></span>
+              <div class="price-row"><span class="price">₹749</span></div>
+              <button class="btn btn-primary btn-add-cart" type="button" data-add-to-cart data-product-name="Sandalwood Body Oil">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 reveal">
+          <div class="product-card">
+            <div class="product-media">
+              <span class="product-tag">Hair Care</span>
+              <div class="product-actions">
+                <button type="button" data-wishlist-toggle data-product-id="h2p3" aria-pressed="false" aria-label="Add Amla Hair Serum to wishlist"><i class="bi bi-heart"></i></button>
+                <button type="button" data-quick-view aria-label="Quick view Amla Hair Serum" data-bs-toggle="modal" data-bs-target="#home2QuickView"><i class="bi bi-eye"></i></button>
+              </div>
+              <img src="../assets/images/hair rituals.jpg" alt="Amla, Indian gooseberry, used in hair serum" loading="lazy" width="700" height="700">
+            </div>
+            <div class="product-body">
+              <span class="product-cat">Hair Care</span>
+              <h3 class="product-name"><a href="product-details.html">Amla Hair Serum</a></h3>
+              <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i> <span>(54)</span></span>
+              <div class="price-row"><span class="price">₹549</span></div>
+              <button class="btn btn-primary btn-add-cart" type="button" data-add-to-cart data-product-name="Amla Hair Serum">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 reveal">
+          <div class="product-card">
+            <div class="product-media">
+              <span class="product-tag">Supplements</span>
+              <div class="product-actions">
+                <button type="button" data-wishlist-toggle data-product-id="h2p4" aria-pressed="false" aria-label="Add Neem Clarity Capsules to wishlist"><i class="bi bi-heart"></i></button>
+                <button type="button" data-quick-view aria-label="Quick view Neem Clarity Capsules" data-bs-toggle="modal" data-bs-target="#home2QuickView"><i class="bi bi-eye"></i></button>
+              </div>
+              <img src="../assets/images/Neem Clarity Capsule.jpg" alt="Neem leaves used in clarity capsules" loading="lazy" width="700" height="700">
+            </div>
+            <div class="product-body">
+              <span class="product-cat">Supplements</span>
+              <h3 class="product-name"><a href="product-details.html">Neem Clarity Capsules</a></h3>
+              <span class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i> <span>(133)</span></span>
+              <div class="price-row"><span class="price">₹899</span><span class="price-old">₹999</span></div>
+              <button class="btn btn-primary btn-add-cart" type="button" data-add-to-cart data-product-name="Neem Clarity Capsules">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Home-2 quick view modal (shared) -->
+  <div class="modal fade" id="home2QuickView" tabindex="-1" aria-labelledby="home2QuickViewLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header"><h2 class="modal-title h5" id="home2QuickViewLabel">Quick View</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+        <div class="modal-body"><p class="text-muted small mb-0">See full product details, ingredients and reviews on the product page.</p></div>
+        <div class="modal-footer"><a href="product-details.html" class="btn btn-primary">View Full Details</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================
+       CUSTOMER STORIES
+  ========================================= -->
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="row mb-5"><div class="col-lg-7 reveal"><p class="text-eyebrow mb-2">Customer Stories</p><h2 class="heading-lg mb-0">Rituals, in their own words.</h2></div></div>
+      <div class="row g-4">
+        <div class="col-lg-4 reveal">
+          <div class="testimonial-card">
+            <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+            <blockquote>"The turmeric tea has become part of my evening wind-down. Simple, and it doesn't taste like a supplement."</blockquote>
+            <div class="customer"><img src="../assets/images/testimonial-rhea-kapoor.jpg" alt="Rhea Kapoor" class="avatar-photo"><div><p class="fw-semibold mb-0 small">Rhea Kapoor</p><p class="small mb-0 text-muted">Pune, India</p></div></div>
+          </div>
+        </div>
+        <div class="col-lg-4 reveal">
+          <div class="testimonial-card">
+            <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></div>
+            <blockquote>"Booked a consultation out of curiosity and left with a simple three-step morning routine I've actually stuck to."</blockquote>
+            <div class="customer"><img src="../assets/images/testimonial-arjun-mehta.jpg" alt="Arjun Mehta" class="avatar-photo"><div><p class="fw-semibold mb-0 small">Arjun Mehta</p><p class="small mb-0 text-muted">Bengaluru, India</p></div></div>
+          </div>
+        </div>
+        <div class="col-lg-4 reveal">
+          <div class="testimonial-card">
+            <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+            <blockquote>"The Brahmi scalp oil smells calm and grounding rather than medicinal. It's part of my Sunday routine now."</blockquote>
+            <div class="customer"><img src="../assets/images/testimonial-sana-farooqui.jpg" alt="Sana Farooqui" class="avatar-photo"><div><p class="fw-semibold mb-0 small">Sana Farooqui</p><p class="small mb-0 text-muted">Hyderabad, India</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       FROM THE JOURNAL
+  ========================================= -->
+  <section class="section bg-alt-panel">
+    <div class="container">
+      <div class="row mb-5 align-items-end">
+        <div class="col-lg-7 reveal"><p class="text-eyebrow mb-2">From the Journal</p><h2 class="heading-lg mb-0">Reading for the ritual-curious.</h2></div>
+        <div class="col-lg-5 text-lg-end reveal"><a href="blog.html" class="link-underline-accent">Visit the Journal</a></div>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-4 reveal">
+          <a href="blog-details.html" class="journal-card text-decoration-none">
+            <div class="journal-media"><img src="../assets/images/calm & balance.jpg" alt="An Ayurvedic consultation in progress at a wooden table" loading="lazy" width="800" height="600"></div>
+            <span class="journal-cat">Consultation</span>
+            <h3 style="color:var(--text);">What to Expect From Your First Consultation</h3>
+            <p class="small mb-0" style="color:var(--muted);">A walkthrough of what's discussed, how long it takes, and what you'll leave with.</p>
+            <p class="journal-meta">5 min read · Aug 30, 2026</p>
+          </a>
+        </div>
+        <div class="col-lg-4 reveal">
+          <a href="blog-details.html" class="journal-card text-decoration-none">
+            <div class="journal-media"><img src="../assets/images/Brahmi Scalp Oil.jpg" alt="Brahmi leaves used in traditional scalp preparations" loading="lazy" width="800" height="600"></div>
+            <span class="journal-cat">Hair Care</span>
+            <h3 style="color:var(--text);">Choosing a Scalp Oil for Your Hair Type</h3>
+            <p class="small mb-0" style="color:var(--muted);">A quick guide to matching oils like brahmi and amla to what your scalp actually needs.</p>
+            <p class="journal-meta">7 min read · Aug 18, 2026</p>
+          </a>
+        </div>
+        <div class="col-lg-4 reveal">
+          <a href="blog-details.html" class="journal-card text-decoration-none">
+            <div class="journal-media"><img src="../assets/images/Neem & Tulsi Face Cleanser.jpg" alt="Natural skincare cream in a ceramic jar with neem leaves" loading="lazy" width="800" height="600"></div>
+            <span class="journal-cat">Skincare</span>
+            <h3 style="color:var(--text);">Neem in Skincare: What It Actually Does</h3>
+            <p class="small mb-0" style="color:var(--muted);">Separating tradition from marketing when it comes to this everyday ingredient.</p>
+            <p class="journal-meta">6 min read · Aug 4, 2026</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       NEWSLETTER
+  ========================================= -->
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="newsletter-panel reveal">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-6">
+            <h2 class="heading-md mb-2">Bring a little more nature into your inbox.</h2>
+            <p class="mb-0">Seasonal rituals, ingredient guides and early access to new formulations. No spam, unsubscribe anytime.</p>
+          </div>
+          <div class="col-lg-6">
+            <!-- TODO: connect action to Mailchimp / ConvertKit endpoint -->
+            <form data-validate novalidate class="row g-2" action="#" method="post">
+              <div class="col-sm-8">
+                <label for="home2NewsletterEmail" class="visually-hidden">Email address</label>
+                <input type="email" class="form-control" id="home2NewsletterEmail" name="email" placeholder="you@example.com" required>
+                <div class="invalid-feedback text-white-50">Please enter a valid email address.</div>
+              </div>
+              <div class="col-sm-4"><button class="btn btn-accent w-100" type="submit">Subscribe</button></div>
+              <p class="small mb-0 mt-2" data-form-success hidden>You're subscribed — welcome to the ritual.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-alt-panel">
+    <div class="container text-center">
+      <p class="text-eyebrow mb-2 reveal">See the Full Homepage</p>
+      <h2 class="heading-md mb-4 reveal">This is an alternate hero layout — explore the full experience.</h2>
+      <a href="index.html" class="btn btn-primary btn-lg reveal">View Primary Homepage</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-5 mb-4">
+      <div class="col-lg-4"><a href="index.html" class="footer-logo-link mb-3"><img src="../assets/images/logo.png" alt="AyurVeda Naturals" class="footer-logo"></a><p class="mb-4">Herbal and Ayurvedic wellness products made from plant-based ingredients, inspired by traditional practice.</p>
+        <div class="d-flex gap-2 footer-social"><a href="#" aria-label="Instagram" onclick="return false;"><i class="bi bi-instagram"></i></a><a href="#" aria-label="Facebook" onclick="return false;"><i class="bi bi-facebook"></i></a><a href="#" aria-label="Pinterest" onclick="return false;"><i class="bi bi-pinterest"></i></a><a href="#" aria-label="YouTube" onclick="return false;"><i class="bi bi-youtube"></i></a></div></div>
+      <div class="col-6 col-lg-2"><h6>Shop</h6><ul class="list-unstyled d-flex flex-column gap-2"><li><a href="shop.html#herbal-teas">Herbal Teas</a></li><li><a href="shop.html#oils">Oils</a></li><li><a href="shop.html#supplements">Supplements</a></li><li><a href="shop.html#skincare">Skincare</a></li><li><a href="shop.html#haircare">Hair Care</a></li></ul></div>
+      <div class="col-6 col-lg-2"><h6>Wellness</h6><ul class="list-unstyled d-flex flex-column gap-2"><li><a href="ingredients.html">Ingredients</a></li><li><a href="consultation.html">Consultation</a></li><li><a href="blog.html">Care Guides</a></li><li><a href="shop.html">Gift Sets</a></li></ul></div>
+      <div class="col-6 col-lg-2"><h6>Company</h6><ul class="list-unstyled d-flex flex-column gap-2"><li><a href="about.html">About</a></li><li><a href="blog.html">Journal</a></li><li><a href="certifications.html">Certifications</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="col-6 col-lg-2"><h6>Support</h6><ul class="list-unstyled d-flex flex-column gap-2"><li><a href="contact.html">Shipping</a></li><li><a href="contact.html">Returns</a></li><li><a href="certifications.html">FAQs</a></li><li><a href="contact.html">Privacy</a></li><li><a href="contact.html">Terms</a></li></ul></div>
+    </div>
+    <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-3"><p class="mb-0">© 2026 AyurVeda Naturals. All rights reserved. Demo template content.</p><div class="payment-icons"><i class="bi bi-credit-card-2-front"></i><i class="bi bi-paypal"></i><i class="bi bi-wallet2"></i><i class="bi bi-bank"></i></div></div>
+  </div>
+</footer>
+
+<button class="back-to-top" type="button" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

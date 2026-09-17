@@ -1,0 +1,76 @@
+/* =========================================================================
+   DARK MODE REFINEMENTS
+   Most theming runs through CSS variables redefined in style.css under
+   [data-bs-theme="dark"]. This file layers additional treatment so dark
+   mode reads as a deliberate deep-forest/charcoal palette, not an inverted
+   light theme.
+   ========================================================================= */
+
+[data-bs-theme="dark"]{
+  --shadow-soft:0 20px 50px -26px rgba(0,0,0,.65);
+}
+
+[data-bs-theme="dark"] body{
+  background-image:
+    radial-gradient(1200px 600px at 90% -10%, rgba(164,124,82,.06), transparent 60%),
+    radial-gradient(1000px 500px at -10% 20%, rgba(169,185,162,.05), transparent 60%);
+  background-attachment:fixed;
+}
+
+[data-bs-theme="dark"] .site-header{ border-bottom-color:var(--border); }
+
+/* Header logo is dark green/brown on a transparent background, so it
+   disappears against the dark header. Give it the same white chip the
+   footer logo already uses. */
+[data-bs-theme="dark"] .brand-mark-logo{
+  background:#fff;
+  padding:6px 10px;
+  border-radius:8px;
+}
+
+[data-bs-theme="dark"] .product-card,
+[data-bs-theme="dark"] .ingredient-card,
+[data-bs-theme="dark"] .testimonial-card,
+[data-bs-theme="dark"] .promise-card,
+[data-bs-theme="dark"] .form-panel,
+[data-bs-theme="dark"] .filter-toolbar,
+[data-bs-theme="dark"] .cert-badge{
+  background:var(--bg-elevated);
+  border-color:var(--border);
+}
+
+[data-bs-theme="dark"] .product-card .product-tag{
+  background:var(--bg-alt);
+  color:var(--sage);
+  border-color:var(--border);
+}
+
+[data-bs-theme="dark"] .product-card .product-actions button{
+  background:var(--bg-alt);
+  border-color:var(--border);
+  color:var(--text);
+}
+
+[data-bs-theme="dark"] .chip{
+  background:var(--bg-elevated);
+  border-color:var(--border);
+  color:var(--text);
+}
+[data-bs-theme="dark"] .chip.active{ background:var(--primary); color:#fff; }
+
+[data-bs-theme="dark"] .breadcrumb-bar{ background:var(--bg-alt); border-color:var(--border); }
+
+[data-bs-theme="dark"] .table-editorial{ color:var(--text); }
+[data-bs-theme="dark"] .table-editorial td, [data-bs-theme="dark"] .table-editorial th{ border-color:var(--border); }
+
+[data-bs-theme="dark"] .modal-content{ background:var(--bg-elevated); }
+
+[data-bs-theme="dark"] .newsletter-panel{ background:var(--primary-dark); }
+
+[data-bs-theme="dark"] .site-footer{ background:#101B16; }
+
+[data-bs-theme="dark"] ::selection{ background:var(--accent); color:#101B16; }
+
+[data-bs-theme="dark"] img{ filter:brightness(.94) saturate(1.02); }
+
+[data-bs-theme="dark"] .skeleton{ background:var(--bg-alt); }

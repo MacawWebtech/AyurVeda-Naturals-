@@ -1,0 +1,43 @@
+/* =========================================================================
+   RTL SUPPORT
+   Applied when <html dir="rtl">. Most spacing already uses logical
+   properties (margin-inline / inset-inline / padding-inline) in style.css,
+   so this file only handles the exceptions: physical properties, mirrored
+   icons/arrows, and directional carets.
+   ========================================================================= */
+
+[dir="rtl"] body{ text-align:right; }
+
+[dir="rtl"] .navbar-nav{ padding-inline-start:0; }
+
+[dir="rtl"] .dropdown-menu{ text-align:right; }
+
+/* Mirror directional icons (arrows, chevrons used as "next" indicators) */
+[dir="rtl"] .icon-flip{ transform:scaleX(-1); }
+
+[dir="rtl"] .breadcrumb{ direction:rtl; }
+
+[dir="rtl"] .qty-stepper{ direction:ltr; } /* keep numeric stepper controls consistent */
+
+[dir="rtl"] .form-check{ padding-inline-start:1.5em; padding-inline-end:0; }
+[dir="rtl"] .form-check .form-check-input{ margin-inline-start:-1.5em; margin-inline-end:0; float:inline-end; }
+
+[dir="rtl"] .ritual-card .ritual-body,
+[dir="rtl"] .product-card .product-body{ text-align:right; }
+
+[dir="rtl"] .offcanvas-end{ inset-inline-start:0; inset-inline-end:auto; transform:translateX(-100%); }
+[dir="rtl"] .offcanvas-end.showing,
+[dir="rtl"] .offcanvas-end.show:not(.hiding){ transform:none; }
+
+[dir="rtl"] .back-to-top{ inset-inline-start:var(--sp-6); inset-inline-end:auto; }
+
+[dir="rtl"] .timeline{ padding-inline-start:0; padding-inline-end:var(--sp-6); }
+[dir="rtl"] .timeline::before{ inset-inline-start:auto; inset-inline-end:6px; }
+[dir="rtl"] .timeline-item::before{ inset-inline-start:auto; inset-inline-end:-30px; }
+
+[dir="rtl"] .table-editorial{ direction:rtl; }
+
+[dir="rtl"] .toast-container.position-fixed{ text-align:right; }
+
+/* Bootstrap's built-in RTL (bootstrap.rtl.min.css) handles grid/utility
+   mirroring; this file only patches this template's custom components. */

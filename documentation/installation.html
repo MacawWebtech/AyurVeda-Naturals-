@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Installation | AyurVeda Naturals Documentation</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="../assets/css/style.css" rel="stylesheet">
+<link href="../assets/css/dark-mode.css" rel="stylesheet">
+</head>
+<body>
+<header class="site-header"><nav class="navbar"><div class="container d-flex justify-content-between align-items-center">
+  <a class="brand-mark" href="../pages/index.html"><svg width="26" height="26" viewBox="0 0 30 30" fill="none" aria-hidden="true"><circle cx="15" cy="15" r="14" stroke="var(--primary)" stroke-width="1.4"/><path d="M15 22C15 22 9 18 9 12.5C9 9.46 11.46 7 14.5 7C15 9 15 12 15 12C15 12 15 9 15.5 7C18.54 7 21 9.46 21 12.5C21 18 15 22 15 22Z" fill="var(--primary)"/></svg><span>AyurVeda Naturals — Docs</span></a>
+  <div class="theme-toggle" role="group" aria-label="Theme"><button type="button" data-theme-option="light" aria-label="Light theme"><i class="bi bi-sun"></i></button><button type="button" data-theme-option="system" aria-label="System theme"><i class="bi bi-circle-half"></i></button><button type="button" data-theme-option="dark" aria-label="Dark theme"><i class="bi bi-moon-stars"></i></button></div>
+</div></nav></header>
+
+<div class="container section-tight">
+  <div class="row g-5">
+    <div class="col-lg-3">
+      <nav class="d-flex flex-column gap-2 sticky-top" style="top:100px;" aria-label="Documentation">
+        <a href="installation.html" class="fw-bold" style="color:var(--primary);">Installation</a>
+        <a href="customization.html" style="color:var(--text);">Customization</a>
+        <a href="page-structure.html" style="color:var(--text);">Page Structure</a>
+        <a href="credits.html" style="color:var(--text);">Credits</a>
+        <a href="changelog.html" style="color:var(--text);">Changelog</a>
+      </nav>
+    </div>
+    <div class="col-lg-9">
+      <h1 class="heading-lg mb-4">Installation</h1>
+
+      <h2 class="heading-sm mt-4 mb-2">1. Extract the template</h2>
+      <p style="color:var(--muted);">Unzip <code>ayurveda-naturals.zip</code>. You'll find the folder structure below:</p>
+      <pre class="p-3 rounded-2" style="background:var(--bg-alt); overflow-x:auto;"><code>ayurveda-naturals/
+├── assets/       (css, js, images, fonts)
+├── pages/        (all HTML pages)
+├── documentation/
+├── sitemap.xml
+└── robots.txt</code></pre>
+
+      <h2 class="heading-sm mt-4 mb-2">2. Run locally</h2>
+      <p style="color:var(--muted);">Because pages use relative asset paths (<code>../assets/...</code>), open them through a local server rather than double-clicking the file:</p>
+      <pre class="p-3 rounded-2" style="background:var(--bg-alt); overflow-x:auto;"><code>cd ayurveda-naturals
+python3 -m http.server 8000
+# then visit http://localhost:8000/pages/index.html</code></pre>
+
+      <h2 class="heading-sm mt-4 mb-2">3. Deploy</h2>
+      <p style="color:var(--muted);">Upload the whole <code>ayurveda-naturals/</code> folder to any static host (Netlify, Vercel, GitHub Pages, or a standard web server). No build step is required — every page is plain HTML, CSS and JavaScript.</p>
+
+      <h2 class="heading-sm mt-4 mb-2">4. Dependencies (CDN-loaded)</h2>
+      <ul style="color:var(--muted);">
+        <li>Bootstrap 5.3.3 (CSS + JS bundle)</li>
+        <li>Bootstrap Icons 1.11.3</li>
+        <li>Google Fonts — Playfair Display & Manrope</li>
+      </ul>
+      <p style="color:var(--muted);">No npm install or build tooling is needed; everything loads from CDNs listed in each page's <code>&lt;head&gt;</code>.</p>
+
+      <div class="d-flex justify-content-between mt-5 pt-4 border-top" style="border-color:var(--border) !important;">
+        <span></span>
+        <a href="customization.html" class="link-underline-accent">Next: Customization →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer py-4"><div class="container"><p class="mb-0 small">© 2026 AyurVeda Naturals. Documentation for template purposes.</p></div></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

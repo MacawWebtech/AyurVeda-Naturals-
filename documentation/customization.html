@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Customization | AyurVeda Naturals Documentation</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="../assets/css/style.css" rel="stylesheet">
+<link href="../assets/css/dark-mode.css" rel="stylesheet">
+</head>
+<body>
+<header class="site-header"><nav class="navbar"><div class="container d-flex justify-content-between align-items-center">
+  <a class="brand-mark" href="../pages/index.html"><svg width="26" height="26" viewBox="0 0 30 30" fill="none" aria-hidden="true"><circle cx="15" cy="15" r="14" stroke="var(--primary)" stroke-width="1.4"/><path d="M15 22C15 22 9 18 9 12.5C9 9.46 11.46 7 14.5 7C15 9 15 12 15 12C15 12 15 9 15.5 7C18.54 7 21 9.46 21 12.5C21 18 15 22 15 22Z" fill="var(--primary)"/></svg><span>AyurVeda Naturals — Docs</span></a>
+  <div class="theme-toggle" role="group" aria-label="Theme"><button type="button" data-theme-option="light" aria-label="Light theme"><i class="bi bi-sun"></i></button><button type="button" data-theme-option="system" aria-label="System theme"><i class="bi bi-circle-half"></i></button><button type="button" data-theme-option="dark" aria-label="Dark theme"><i class="bi bi-moon-stars"></i></button></div>
+</div></nav></header>
+
+<div class="container section-tight">
+  <div class="row g-5">
+    <div class="col-lg-3">
+      <nav class="d-flex flex-column gap-2 sticky-top" style="top:100px;" aria-label="Documentation">
+        <a href="installation.html" style="color:var(--text);">Installation</a>
+        <a href="customization.html" class="fw-bold" style="color:var(--primary);">Customization</a>
+        <a href="page-structure.html" style="color:var(--text);">Page Structure</a>
+        <a href="credits.html" style="color:var(--text);">Credits</a>
+        <a href="changelog.html" style="color:var(--text);">Changelog</a>
+      </nav>
+    </div>
+    <div class="col-lg-9">
+      <h1 class="heading-lg mb-4">Customization</h1>
+
+      <h2 class="heading-sm mt-4 mb-2">Colors</h2>
+      <p style="color:var(--muted);">All brand colors are CSS custom properties defined at the top of <code>assets/css/style.css</code>:</p>
+      <pre class="p-3 rounded-2" style="background:var(--bg-alt); overflow-x:auto;"><code>:root{
+  --primary:#315C45;
+  --primary-dark:#214334;
+  --secondary:#A47C52;
+  --accent:#C9824B;
+  --sage:#A9B9A2;
+  --cream:#F7F3EA;
+  --sand:#E8DDCB;
+  --text:#243129;
+  --muted:#6F786F;
+  --border:#DCD8CE;
+}</code></pre>
+      <p style="color:var(--muted);">Dark mode overrides live in the same file under <code>[data-bs-theme="dark"]</code>, plus refinements in <code>assets/css/dark-mode.css</code>. Change a variable once and it updates every component site-wide.</p>
+
+      <h2 class="heading-sm mt-4 mb-2">Typography</h2>
+      <p style="color:var(--muted);">Two font families are loaded from Google Fonts in each page's <code>&lt;head&gt;</code>: Playfair Display (headings, <code>--font-display</code>) and Manrope (body/UI, <code>--font-body</code>). To swap a typeface, update the Google Fonts <code>&lt;link&gt;</code> and the corresponding CSS variable in <code>style.css</code>.</p>
+
+      <h2 class="heading-sm mt-4 mb-2">Theme switching</h2>
+      <p style="color:var(--muted);">Handled by <code>assets/js/main.js</code> (<code>ThemeManager</code>). It stores the choice (<code>light</code> / <code>dark</code> / <code>system</code>) under the localStorage key <code>ayurveda-theme</code> and sets <code>data-bs-theme</code> on <code>&lt;html&gt;</code>.</p>
+
+      <h2 class="heading-sm mt-4 mb-2">RTL</h2>
+      <p style="color:var(--muted);">Toggled the same way via <code>DirectionManager</code>, storing <code>ltr</code>/<code>rtl</code> under the localStorage key <code>ayurveda-dir</code> and setting the <code>dir</code> attribute on <code>&lt;html&gt;</code>. Component-level RTL overrides live in <code>assets/css/rtl.css</code>; most spacing already uses logical CSS properties (<code>margin-inline</code>, <code>inset-inline</code>) so it mirrors automatically.</p>
+
+      <h2 class="heading-sm mt-4 mb-2">Editing products</h2>
+      <p style="color:var(--muted);">Each product card in <code>shop.html</code> is a self-contained block with <code>data-category</code>, <code>data-name</code>, <code>data-price</code>, <code>data-rating</code> and <code>data-instock</code> attributes that <code>shop.js</code> reads for filtering/sorting. Duplicate a card block, edit its content and data attributes, and it's automatically included in filtering.</p>
+
+      <h2 class="heading-sm mt-4 mb-2">Editing blog posts</h2>
+      <p style="color:var(--muted);">Duplicate a <code>.journal-card</code> block in <code>blog.html</code>, update the image, category, title and meta line, then create a matching <code>blog-details.html</code> copy for the full article.</p>
+
+      <h2 class="heading-sm mt-4 mb-2">Booking integration</h2>
+      <p style="color:var(--muted);">The booking form in <code>consultation.html</code> is plain HTML with client-side validation only. Connect it to a real scheduling backend by replacing the <code>TODO</code> comment in <code>assets/js/booking.js</code> and <code>main.js</code>'s <code>FormValidation.handleSubmit</code> with a real API call.</p>
+
+      <h2 class="heading-sm mt-4 mb-2">Form integration (Formspree / Netlify)</h2>
+      <p style="color:var(--muted);">Every form has <code>data-validate</code> and a plain <code>action="#"</code>. To use Formspree, set <code>action</code> to your form endpoint and add <code>method="POST"</code>. For Netlify Forms, add <code>data-netlify="true"</code> and a hidden <code>form-name</code> input matching the form's <code>name</code> attribute.</p>
+
+      <h2 class="heading-sm mt-4 mb-2">Google Maps</h2>
+      <p style="color:var(--muted);">The map on <code>contact.html</code> is a placeholder block. Replace it with an embedded iframe using your Google Maps API key, or a static map image.</p>
+
+      <h2 class="heading-sm mt-4 mb-2">Newsletter integration</h2>
+      <p style="color:var(--muted);">Newsletter forms (homepage, blog article, coming-soon page) are Mailchimp/ConvertKit-ready: set the form's <code>action</code> to your provider's POST endpoint and match input <code>name</code> attributes to their expected fields.</p>
+
+      <h2 class="heading-sm mt-4 mb-2">Payment integration</h2>
+      <p style="color:var(--muted);">Add-to-cart and buy-now buttons currently update a demo localStorage cart and show a toast. Replace <code>CommerceState.addToCart</code> in <code>main.js</code> with calls to your checkout/payment provider (Stripe, Razorpay, etc.).</p>
+
+      <div class="d-flex justify-content-between mt-5 pt-4 border-top" style="border-color:var(--border) !important;">
+        <a href="installation.html" class="link-underline-accent">← Installation</a>
+        <a href="page-structure.html" class="link-underline-accent">Next: Page Structure →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer py-4"><div class="container"><p class="mb-0 small">© 2026 AyurVeda Naturals. Documentation for template purposes.</p></div></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
