@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /pages/404.html
+Disallow: /pages/coming-soon.html
+Disallow: /documentation/
+
+Sitemap: https://www.ayurvedanaturals.example/sitemap.xml

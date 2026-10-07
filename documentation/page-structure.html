@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Page Structure | AyurVeda Naturals Documentation</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="../assets/css/style.css" rel="stylesheet">
+<link href="../assets/css/dark-mode.css" rel="stylesheet">
+</head>
+<body>
+<header class="site-header"><nav class="navbar"><div class="container d-flex justify-content-between align-items-center">
+  <a class="brand-mark" href="../pages/index.html"><svg width="26" height="26" viewBox="0 0 30 30" fill="none" aria-hidden="true"><circle cx="15" cy="15" r="14" stroke="var(--primary)" stroke-width="1.4"/><path d="M15 22C15 22 9 18 9 12.5C9 9.46 11.46 7 14.5 7C15 9 15 12 15 12C15 12 15 9 15.5 7C18.54 7 21 9.46 21 12.5C21 18 15 22 15 22Z" fill="var(--primary)"/></svg><span>AyurVeda Naturals — Docs</span></a>
+  <div class="theme-toggle" role="group" aria-label="Theme"><button type="button" data-theme-option="light" aria-label="Light theme"><i class="bi bi-sun"></i></button><button type="button" data-theme-option="system" aria-label="System theme"><i class="bi bi-circle-half"></i></button><button type="button" data-theme-option="dark" aria-label="Dark theme"><i class="bi bi-moon-stars"></i></button></div>
+</div></nav></header>
+
+<div class="container section-tight">
+  <div class="row g-5">
+    <div class="col-lg-3">
+      <nav class="d-flex flex-column gap-2 sticky-top" style="top:100px;" aria-label="Documentation">
+        <a href="installation.html" style="color:var(--text);">Installation</a>
+        <a href="customization.html" style="color:var(--text);">Customization</a>
+        <a href="page-structure.html" class="fw-bold" style="color:var(--primary);">Page Structure</a>
+        <a href="credits.html" style="color:var(--text);">Credits</a>
+        <a href="changelog.html" style="color:var(--text);">Changelog</a>
+      </nav>
+    </div>
+    <div class="col-lg-9">
+      <h1 class="heading-lg mb-4">Page Structure</h1>
+      <p style="color:var(--muted);">Every page shares the same header, offcanvas mobile nav, search modal, toast container and footer, followed by page-specific content inside <code>&lt;main id="main-content"&gt;</code>. This keeps navigation and theming consistent everywhere.</p>
+
+      <div class="table-responsive-wrap mt-4">
+        <table class="table table-editorial mb-0">
+          <thead><tr><th>Page</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>pages/index.html</code></td><td>Primary homepage — hero, rituals, ingredients, products, consultation CTA, trust, testimonials, journal, newsletter</td></tr>
+            <tr><td><code>pages/home-2.html</code></td><td>Alternate full-bleed magazine-style homepage hero</td></tr>
+            <tr><td><code>pages/shop.html</code></td><td>Product catalog with chips, filter toolbar, grid and pagination</td></tr>
+            <tr><td><code>pages/product-details.html</code></td><td>Single product page — gallery, tabs, related/recently viewed</td></tr>
+            <tr><td><code>pages/ingredients.html</code></td><td>A–Z ingredient glossary with search and letter filter</td></tr>
+            <tr><td><code>pages/ingredient-details.html</code></td><td>Single ingredient profile template</td></tr>
+            <tr><td><code>pages/consultation.html</code></td><td>Consultation packages, practitioner profile, booking form</td></tr>
+            <tr><td><code>pages/certifications.html</code></td><td>Quality standards, badges (demo), FAQ</td></tr>
+            <tr><td><code>pages/services.html</code></td><td>Service overview cards</td></tr>
+            <tr><td><code>pages/service-details.html</code></td><td>Reusable single-service template</td></tr>
+            <tr><td><code>pages/about.html</code></td><td>Brand story, mission, sourcing, timeline, team, testimonials</td></tr>
+            <tr><td><code>pages/blog.html</code></td><td>Wellness journal listing with category filters</td></tr>
+            <tr><td><code>pages/blog-details.html</code></td><td>Article template with TOC and ingredient callouts</td></tr>
+            <tr><td><code>pages/contact.html</code></td><td>Contact info, contact form, wholesale enquiry, map placeholder</td></tr>
+            <tr><td><code>pages/404.html</code></td><td>Branded not-found page</td></tr>
+            <tr><td><code>pages/coming-soon.html</code></td><td>Pre-launch page with countdown and email signup</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="heading-sm mt-5 mb-2">Asset paths</h2>
+      <p style="color:var(--muted);">All pages under <code>pages/</code> reference assets as <code>../assets/css/...</code> and <code>../assets/js/...</code>. If you move a page out of that folder, update its relative paths accordingly.</p>
+
+      <div class="d-flex justify-content-between mt-5 pt-4 border-top" style="border-color:var(--border) !important;">
+        <a href="customization.html" class="link-underline-accent">← Customization</a>
+        <a href="credits.html" class="link-underline-accent">Next: Credits →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer py-4"><div class="container"><p class="mb-0 small">© 2026 AyurVeda Naturals. Documentation for template purposes.</p></div></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
